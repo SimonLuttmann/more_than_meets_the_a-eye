@@ -10,35 +10,22 @@ pedestrians in autonomous driving. According to human visual perception, the ide
 object boundaries are not always clear \citep{yu_techniques_2023}.
 
 There are three common types of segmentation:
-% \begin{enumerate}
-%     \item Semantic segmentation assigns every pixel in an image a semantic label, such as “car” or “sky”.
-%     \item Instance segmentation separates individual objects within the same class, for example distinguishing several people in one image.
-%     \item Panoptic segmentation combines both approaches by providing pixel-wise class labels and also identifying individual object instances.
-% \end{enumerate}
 
-\begin{figure}[h!]
-\centering
-\begin{minipage}[]{0.55\textwidth}
-\begin{enumerate}
-    \item Semantic segmentation assigns every pixel in an image a semantic label, such as “car” or “sky”.
-    \item Instance segmentation separates individual objects within the same class, for example distinguishing several people in one image.
-    \item Panoptic segmentation combines both approaches by providing pixel-wise class labels and also identifying individual object instances.
-\end{enumerate}
-\end{minipage}
-\hfill
-\begin{minipage}[]{0.40\textwidth}
+\textit{Semantic segmentation} assigns every pixel in an image a semantic label, such as “car” or “sky”.
+\textit{Instance segmentation} separates individual objects within the same class, for example distinguishing several people in one image.
+\textit{Panoptic segmentation} combines both approaches by providing pixel-wise class labels and also identifying individual object instances.
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{figures/segmentation_types.png}
+    \includegraphics[width=0.45\textwidth]{figures/segmentation_types.png}
     \caption{Types of image segmentation by \cite{kirillov_panoptic_2019}}
-\end{minipage}
 \end{figure}
-
-
 
 Earlier approaches to image segmentation include algorithms such as k-means-clustering \citep{dhanachandra_image_2015}. Yet in recent years, deep learning models 
 have significantly improved the segmentation effect and performance, therefore becoming the dominant method for solving segmentation 
 tasks in complex environments \citep{minaee_image_2022}.
 
+\section{Saliency Segmentation}
 
 \section{Models}
 

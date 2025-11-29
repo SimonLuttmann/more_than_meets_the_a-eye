@@ -67,12 +67,14 @@
 % Process options
 \ProcessKeyvalOptions*
 
-\LoadClass[a4paper,12pt]{report}
+\LoadClass[a4paper,9pt, twocolumn]{report}
+%\LoadClass[a4paper,9pt,twocolumn]{extarticle} does not work
 
 % _______________ Packages _______________
 
 % Set margings and spaces
-\RequirePackage[a4paper,left=2.9cm, top=2.9cm, bottom=2.3cm, right=2.9cm,includefoot,heightrounded]{geometry}
+%\RequirePackage[a4paper,left=2.9cm, top=2.9cm, bottom=2.3cm, right=2.9cm,includefoot,heightrounded]{geometry}
+\RequirePackage[a4paper,left=2cm, top=2.2cm, bottom=2cm, right=2cm, includefoot, heightrounded]{geometry}
 
 % Customize the table of contents
 \usepackage[titles]{tocloft}
