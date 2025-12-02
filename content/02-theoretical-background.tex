@@ -15,7 +15,7 @@ There are three common types of segmentation:
 \textit{Instance segmentation} separates individual objects within the same class, for example distinguishing several people in one image.
 \textit{Panoptic segmentation} combines both approaches by providing pixel-wise class labels and also identifying individual object instances.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.45\textwidth]{figures/segmentation_types.png}
     \caption{Types of image segmentation by \cite{kirillov_panoptic_2019}}
@@ -25,7 +25,40 @@ Earlier approaches to image segmentation include algorithms such as k-means-clus
 have significantly improved the segmentation effect and performance, therefore becoming the dominant method for solving segmentation 
 tasks in complex environments \citep{minaee_image_2022}.
 
-\section{Saliency Segmentation}
+\section{Salient Object Detection}
+The human visual system pays more attention to certain parts in an image, a property known as saliency. 
+Inspired by this mechanism, \textit{saliency detection} models aim to predict which regions in an image are most likely to attract human visual attention. 
+These models typically provide saliency maps in form of heat maps, in which higher intensity values indicate regions detected to be more important \citep{ahmadi_context_2018}.
+
+\textit{Salient Object Detection (SOD)} – also referred to as salient object segmentation \citep{borji_salient_2019} or saliency segmentation \citep{kakanopas_unified_2021} – 
+goes one step further by segmenting the most salient object(s) of an image. SOD can be interpreted as a two-stage process: 
+1) Detection of the most salient object and 2) Accurate segmentation of the region of that object. 
+In contrast to general image segmentation, SOD focuses on segmenting only those objects that are (or that are predicted to be) most salient \citep{liu_learning_2011, borji_salient_2019}. 
+Figure \ref{fig:sod_example} illustrates the difference between saliency detection and salient object detection.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/original_image_statue.jpg}
+        \caption{}
+        \label{fig:a}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/saliency_detection_example.jpeg}
+        \caption{}
+        \label{fig:b}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/sod_examlple.png}
+        \caption{}
+        \label{fig:c}
+    \end{subfigure}
+
+    \caption{(a) the original image, (b) saliency map \citep{alexander_kroner_visual_nodate} (c) salient object detection mask generated using SAM3 guided by the eye-tracking data}
+    \label{fig:sod_example}
+\end{figure}
+
+
 
 \section{Models}
 
