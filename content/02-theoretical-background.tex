@@ -66,13 +66,11 @@ Figure \ref{fig:sod_example} illustrates the difference between saliency detecti
 
 \section{Image Segmentation Models}
 
-\textcolor{red}{TODO: schöner schreiben, teilweise noch quellen ergänzen}
-
 Table \ref{fig:segmentation_models} offers a structured overview of prominent and state-of-the-art image segmentation models, 
 organized according to the segmentation tasks for which they are most suitable 
 \footnote{Note: The listed models were identified through a combination of literature searches and exploratory queries using Google and ChatGPT to ensure the inclusion of both widely recognized and up-to-date segmentation approaches.}.
 
-\begin{figure}
+\begin{figure}[b]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/screenshot models.png}
     \caption{Overview of prominent image segmentation models}
@@ -90,6 +88,12 @@ and is already being used for other specific use cases of salient object detecti
 he newest release, SAM3, was on the 20th of November 2025. By reaching over 5.1k stars on GitHub within only 2 weeks, it indicates strong community interest. 
 Compared to its predecessors, SAM 3 introduces the ability to detect and segment instances matching a given text description, 
 and to further refine detections using visual examples \citep{carion_sam_2025}.
+
+\textcolor{red}{TODO: segmentation models schöner schreiben, teilweise noch quellen ergänzen}
+
+\textcolor{red}{TODO IDEA: noch kurz was zur EVALUATION von segmentation models schreiben! also IoU, dice coefficent, precision/recall, F-measure, MAE, etc. wenigstens kurz erwähnen}
+
+\textcolor{blue}{notiz motivation?: we want to try out the combination of real eye-tracking data on social media images with SAM to achieve salient object detection in this specific use-case and context}
 
 %%% Local Variables:
 %%% mode: latex
