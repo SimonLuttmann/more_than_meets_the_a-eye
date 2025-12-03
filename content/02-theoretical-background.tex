@@ -25,6 +25,10 @@ Earlier approaches to image segmentation include algorithms such as k-means-clus
 have significantly improved the segmentation effect and performance, therefore becoming the dominant method for solving segmentation 
 tasks in complex environments \citep{minaee_image_2022}.
 
+According to \cite{zhou_image_2024-1}, the above-described image segmentation methods fall into the category of generic image segmentation (GIS). 
+The category of promptable image segmentation (PIS) extends GIS by specifying the target to segment through a prompt. 
+This prompt can have various forms such as text, box or point.
+
 \section{Salient Object Detection}
 The human visual system pays more attention to certain parts in an image, a property known as saliency. 
 Inspired by this mechanism, \textit{saliency detection} models aim to predict which regions in an image are most likely to attract human visual attention. 
@@ -54,13 +58,37 @@ Figure \ref{fig:sod_example} illustrates the difference between saliency detecti
         \label{fig:c}
     \end{subfigure}
 
-    \caption{(a) the original image, (b) saliency map \citep{alexander_kroner_visual_nodate} (c) salient object detection mask generated using SAM3 guided by the eye-tracking data}
+    \caption{(a) the original image, (b) saliency map \citep{alexander_kroner_visual_2025} (c) salient object detection mask generated using SAM3 guided by the eye-tracking data}
     \label{fig:sod_example}
 \end{figure}
 
 
 
-\section{Models}
+\section{Image Segmentation Models}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/screenshot models.png}
+    \caption{Overview of prominent image segmentation models}
+    \label{fig:segmentation_models}
+\end{figure}
+
+\textcolor{red}{TODO: noch überarbeiten, hier nur erste Ideen:}
+
+Figure \ref{fig:segmentation_models} provides an overview of prominent image segmentation models.
+
+Only promptable segmentation models are suitable for our use case, as our pipeline requires point-based segmentation based on eye-tracking data. 
+Classic semantic or instance segmentation models do not support point-based object selection. Among promptable models, SAM (and its successors SAM2 and SAM3) 
+is the only widely used model that natively supports point prompts. Grounded-SAM and Florence-2 offer text-promptable capabilities but do not add any advantages 
+for point-based segmentation. SEEM provides multimodal prompting but is less actively maintained compared to SAM2/SAM3. 
+Therefore, SAM is the most suitable model for our use case.
+
++ Cited over 15.000 times, making it the de facto standard for domain specific implementations 
+
++ SAM3 release: Nov 20, 2025; in 2 weeks already 5.1k stars on github (more than SEEM in 2 years) - indicates strong community interest
+
++ SAM2: 52.8k stars on github
+
 
 %%% Local Variables:
 %%% mode: latex
