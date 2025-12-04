@@ -66,32 +66,44 @@ Figure \ref{fig:sod_example} illustrates the difference between saliency detecti
 
 \section{Image Segmentation Models}
 
-Table \ref{fig:segmentation_models} offers a structured overview of prominent and state-of-the-art image segmentation models, 
-organized according to the segmentation tasks for which they are most suitable 
-\footnote{Note: The listed models were identified through a combination of literature searches and exploratory queries using Google and ChatGPT to ensure the inclusion of both widely recognized and up-to-date segmentation approaches.}.
-
-\begin{figure}[b]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/screenshot models.png}
-    \caption{Overview of prominent image segmentation models}
-    \label{fig:segmentation_models}
-\end{figure}
-
-For our use-case, only promptable segmentation models are suitable as the eye-tracking data provides points which will be used as input to implement SOD. 
-Among the promptable models, SAM (and its successors) is the only widely used model that natively supports point prompts. 
-Grounded-SAM and Florence-2 are only text-promptable and SEEM is - with the last update in 2023 - less actively maintained and used than SAM.
+Table \ref{table:segmentation_models} offers a structured overview of prominent and state-of-the-art image segmentation models, organized according to the segmentation tasks for which they are most suitable. 
+%\footnote{Note: The listed models were identified through a combination of literature searches and exploratory queries using Google and ChatGPT to ensure the inclusion of both widely recognized and up-to-date segmentation approaches.}.
 
 
-The Segment Anything Model is developed by Meta AI and was first introduced in mid-2023 \citep{kirillov_segment_2023}. 
-SAM segments objects using prompts such as points and boxes.  With over 15.000 citations, SAM is de facto standard for domain specific implementations 
-and is already being used for other specific use cases of salient object detection: \cite{chen_sam3-adapter_2025,liu_samsod_2025,yuan_saliencyclip-sam_2026}. 
-he newest release, SAM3, was on the 20th of November 2025. By reaching over 5.1k stars on GitHub within only 2 weeks, it indicates strong community interest. 
-Compared to its predecessors, SAM 3 introduces the ability to detect and segment instances matching a given text description, 
-and to further refine detections using visual examples \citep{carion_sam_2025}.
+\begin{table}[b]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Generic Image Segmentation}} &
+\multicolumn{1}{c|}{\textbf{}} \\
+\hline
+\textbf{Instance segmentation} &
+\textbf{Semantic segmentation} &
+\textbf{Panoptic segmentation} &
+\textbf{Promptable Image Segmentation}
+\\
+\hline
+Mask R-CNN      & DeepLabV3      & Mask2Former       & SAM2, SAM3 \\
+YOLOv11-seg     & FCN            & Panoptic-DeepLab  & Grounded-SAM    \\
+YOLACT          & U-Net          & Panoptic FPN      & SEEM            \\
+Mask2Former     & SegFormer      & \ldots            & Florence-2      \\
+Mask DINO       & LR-ASPP        &                   & \ldots          \\
+\ldots          & \ldots         &                   &                 \\
+\hline
+\end{tabularx}
+\caption{Overview of prominent image segmentation models categorized by segmentation task.}
+\label{table:segmentation_models}
+\end{table}
 
-\textcolor{red}{TODO: segmentation models schöner schreiben, teilweise noch quellen ergänzen}
 
-\textcolor{red}{TODO IDEA: noch kurz was zur EVALUATION von segmentation models schreiben! also IoU, dice coefficent, precision/recall, F-measure, MAE, etc. wenigstens kurz erwähnen}
+For our use case, only promptable segmentation models are suitable, as the eye-tracking data provides point inputs that will be used to implement SOD. Among the identified promptable models, SAM and its successors are the only widely adopted models that natively support point-based prompts \citep{kirillov_segment_2023}. In contrast, Grounded-SAM \citep{ren_grounded_2024} and Florence-2 \citep{xiao_florence-2_2023} are limited to text prompts, and SEEM, whose last update dates back to 2023, is less actively maintained and less commonly used than SAM \citep{zou_segment_2023}.
+
+The Segment Anything Model (SAM) was developed by Meta AI and first introduced in mid-2023 \citep{kirillov_segment_2023}. SAM performs object segmentation based on prompts, including points and bounding boxes. With more than 15,000 citations, SAM has become one of the de facto standards for domain-specific applications and is already employed in several specialized salient object detection settings, such as camouflage object segmentation and medical image segmentation \citep{chen_sam3-adapter_2025}, RGB-T SOD \citep{liu_samsod_2025}, and text-driven SOD \citep{yuan_saliencyclip-sam_2026}. The most recent version, SAM 3, was released on 20 November 2025. Its rapid adoption - reaching over 5.1k GitHub stars within two weeks - indicates strong community interest. Compared to previous versions, SAM 3 introduces the ability to detect and segment instances that match a given text description, and to further refine detections using visual examples \citep{carion_sam_2025}.
+
+\section{Evaluation of Image Segmentation Models}
+
+\textcolor{red}{TODO: noch kurz was zur EVALUATION von segmentation models schreiben! also IoU, dice coefficent, precision/recall, F-measure, MAE, etc. wenigstens kurz erwähnen}
 
 \textcolor{blue}{notiz motivation?: we want to try out the combination of real eye-tracking data on social media images with SAM to achieve salient object detection in this specific use-case and context}
 
