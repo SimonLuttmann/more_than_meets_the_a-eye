@@ -3,7 +3,29 @@
 
 \section{Experimental Design}
 
+
+
 \section{Planned Practical Steps}
+
+The planned next steps can be divided into two main parts. The first part focuses on the optimization of the saliency object detection process, while the second part 
+focuses on the extraction of insights from the segmented objects, based on an exploratory data analysis \citep{tukey_exploratory_1977}.
+
+As discussed in the previous section, the current approach offers several options for improvement. These include image preprocessing, the adjustment of threshold values, 
+the use of box prompts instead of point prompts, and the exploration of additional clustering methods such as k means. Moreover, it is possible to add further steps between 
+the main stages of the workflow in order to create more stable and consistent results. As a last possibility, the model can be fine-tuned, using existing scientific datasets such as
+WXSOD or PASCAL-S \citep{quan_wxsod_2025, ccvl_pascal-s_2018}, which already include saliency masks. The overall goal of this first step is to produce the best possible saliency masks for social 
+media images. Better masks allow for a more reliable extraction of insights in the next step.
+
+After the optimization step, the quality of the segmented masks must be evaluated. This evaluation includes three main questions. First, it must be examined if the masks truly 
+represent the salient parts of the image. Second, the mask quality must be assessed by measuring how well the masks fit the expected important regions. Third, it must be 
+analyzed whether certain types of images work better or worse with saliency based segmentation. This helps identify strengths and limitations of the approach for different 
+kinds of social media content.
+
+Furthermore, the generated masks allow for additional exploratory fields of analysis that can be grouped into three areas: user insights, content insights, and accessibility support. The user 
+related area includes predictive user profiling, where salient regions help identify which visual elements attract individual users. The content related area includes a deeper 
+understanding of social media images, the detection of clickbait content, and guidance for creators who work with under optimized images. The accessibility related area focuses 
+on focus aware alternative text generation, where the masks help identify the most important visual elements for users with visual impairments. Together, these groups show the 
+wider potential of the approach beyond the core segmentation step.
 
 %%% Local Variables:
 %%% mode: latex
