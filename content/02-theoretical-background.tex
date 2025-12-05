@@ -63,7 +63,6 @@ Figure \ref{fig:sod_example} illustrates the difference between saliency detecti
 \end{figure}
 
 
-
 \section{Image Segmentation Models}
 
 Table \ref{table:segmentation_models} offers a structured overview of prominent and state-of-the-art image segmentation models, organized according to the segmentation tasks for which they are most suitable. 
@@ -102,10 +101,11 @@ For our use case, only promptable segmentation models are suitable, as the eye-t
 The Segment Anything Model (SAM) was developed by Meta AI and first introduced in mid-2023 \citep{kirillov_segment_2023}. SAM performs object segmentation based on prompts, including points and bounding boxes. With more than 15,000 citations, SAM has become one of the de facto standards for domain-specific applications and is already employed in several specialized salient object detection settings, such as camouflage object segmentation and medical image segmentation \citep{chen_sam3-adapter_2025}, RGB-T SOD \citep{liu_samsod_2025}, and text-driven SOD \citep{yuan_saliencyclip-sam_2026}. The most recent version, SAM 3, was released on 20 November 2025. Its rapid adoption - reaching over 5.1k GitHub stars within two weeks - indicates strong community interest. Compared to previous versions, SAM 3 introduces the ability to detect and segment instances that match a given text description, and to further refine detections using visual examples \citep{carion_sam_2025}.
 
 \section{Evaluation of Image Segmentation Models}
+-	Subjective \& Objective (Image segmentation evaluation: a survey of methods)
 
-\textcolor{red}{TODO: noch kurz was zur EVALUATION von segmentation models schreiben! also IoU, dice coefficent, precision/recall, F-measure, MAE, etc. wenigstens kurz erwähnen}
+-	SAM: IoU (SAM paper itself)
 
-\textcolor{blue}{notiz motivation?: we want to try out the combination of real eye-tracking data on social media images with SAM to achieve salient object detection in this specific use-case and context}
+-	Metrics in SOD: PR, F-measure, MAE (Salient object detection: A survey)
 
 %%% Local Variables:
 %%% mode: latex
