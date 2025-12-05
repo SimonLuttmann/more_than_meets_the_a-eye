@@ -1,9 +1,28 @@
 % Local IspellDict: en
 \chapter{Results}\label{ch04:results}
 
-\section{Model Selection}
+\section{Current Results}
 
-\section{Expected Results}
+Regarding the first iteration of our Saliency Object Detection Pipeline, we have successfully segmented some types of social media images. Figure TODO
+shows an example of a social media image, along with its generated saliency mask. The mask highlights the teacher, the computer screen and the specific area on the sceen,
+which does represent the salient objects in this image. Also other images, showing small groups of people or single persons have been segmented quite well so far.
+
+However, there are also several limitations, which have been observed in the current results. First, images with very complex scenes or too many objects tend to produce less
+accurate masks (see Figure TODO). Second, images with text overlays led to only some letters being grouped into the salient region, instead of the full text block (see Figure TODO). Third, images with landscapes
+or generally without clear focal points were not segmented effectively (see Figure TODO). These limitations indicate that while the current pipeline shows promise, there is still room for 
+improvement in handling a wider variety of social media images.
+
+\section{Expected Results for the Planned Steps}
+
+Regarding the planned optimization steps, we expect to see significant improvements in the quality of the saliency masks. By implementing image preprocessing techniques,
+we anticipate that noise and irrelevant details in the images will be reduced, leading to clearer segmentation results. The other discussed optimization techniques aim to further refine
+the segmentation process, making it more robust across different types of images. Overall, we strive to achieve more consistently accurate saliency masks, which will enhance
+the reliability of subsequent analyses.
+
+Further analyses based on the optimized masks are expected to yield valuable insights into user behavior and content characteristics on social media platforms. For instance, 
+by examining which visual elements are most frequently highlighted in the masks, we can infer what types of content are more engaging to users. These insights can inform content 
+creation and moderation strategies. As the second part of our planned work is mostly experimental, pivots and adjustments of the goal and scope might be necessary, which 
+would lead to different expected results.
 
 %%% Local Variables:
 %%% mode: latex
