@@ -15,7 +15,7 @@ There are three common types of segmentation:
 \textit{Instance segmentation} separates individual objects within the same class, for example distinguishing several people in one image.
 \textit{Panoptic segmentation} combines both approaches by providing pixel-wise class labels and also identifying individual object instances.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.45\textwidth]{figures/segmentation_types.png}
     \caption{Types of image segmentation by \cite{kirillov_panoptic_2019}}
@@ -25,9 +25,87 @@ Earlier approaches to image segmentation include algorithms such as k-means-clus
 have significantly improved the segmentation effect and performance, therefore becoming the dominant method for solving segmentation 
 tasks in complex environments \citep{minaee_image_2022}.
 
-\section{Saliency Segmentation}
+According to \cite{zhou_image_2024-1}, the above-described image segmentation methods fall into the category of generic image segmentation (GIS). 
+The category of promptable image segmentation (PIS) extends GIS by specifying the target to segment through a prompt. 
+This prompt can have various forms such as text, box or points.
 
-\section{Models}
+\section{Salient Object Detection}
+The human visual system pays more attention to certain parts in an image, a property known as saliency. 
+Inspired by this mechanism, \textit{saliency detection} models aim to predict which regions in an image are most likely to attract human visual attention. 
+These models typically provide saliency maps in form of heat maps, in which higher intensity values indicate regions detected to be more important \citep{ahmadi_context_2018}.
+
+\textit{Salient Object Detection (SOD)} – also referred to as salient object segmentation \citep{borji_salient_2019} or saliency segmentation \citep{kakanopas_unified_2021} – 
+goes one step further by segmenting the most salient object(s) of an image. SOD can be interpreted as a two-stage process: 
+1) Detection of the most salient object and 2) Accurate segmentation of the region of that object. 
+In contrast to general image segmentation, SOD focuses on segmenting only those objects that are (or that are predicted to be) most salient \citep{liu_learning_2011, borji_salient_2019}. 
+Figure \ref{fig:sod_example} illustrates the difference between saliency detection and salient object detection.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/original_image_statue.jpg}
+        \caption{}
+        \label{fig:a}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/saliency_detection_example.jpeg}
+        \caption{}
+        \label{fig:b}
+    \end{subfigure}
+    \begin{subfigure}{0.24\textwidth}
+        \includegraphics[width=\linewidth]{figures/sod_examlple.png}
+        \caption{}
+        \label{fig:c}
+    \end{subfigure}
+
+    \caption{(a) the original image, (b) saliency map \citep{alexander_kroner_visual_2025} (c) salient object detection mask generated using SAM3 guided by the eye-tracking data}
+    \label{fig:sod_example}
+\end{figure}
+
+
+\section{Image Segmentation Models}
+
+Table \ref{table:segmentation_models} offers a structured overview of prominent and state-of-the-art image segmentation models, organized according to the segmentation tasks for which they are most suitable. 
+%\footnote{Note: The listed models were identified through a combination of literature searches and exploratory queries using Google and ChatGPT to ensure the inclusion of both widely recognized and up-to-date segmentation approaches.}.
+
+
+\begin{table}[b]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|X|X|X|X|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Generic Image Segmentation}} &
+\multicolumn{1}{c|}{\textbf{}} \\
+\hline
+\textbf{Instance segmentation} &
+\textbf{Semantic segmentation} &
+\textbf{Panoptic segmentation} &
+\textbf{Promptable Image Segmentation}
+\\
+\hline
+Mask R-CNN      & DeepLabV3      & Mask2Former       & SAM2, SAM3 \\
+YOLOv11-seg     & FCN            & Panoptic-DeepLab  & Grounded-SAM    \\
+YOLACT          & U-Net          & Panoptic FPN      & SEEM            \\
+Mask2Former     & SegFormer      & \ldots            & Florence-2      \\
+Mask DINO       & LR-ASPP        &                   & \ldots          \\
+\ldots          & \ldots         &                   &                 \\
+\hline
+\end{tabularx}
+\caption{Overview of prominent image segmentation models categorized by segmentation task.}
+\label{table:segmentation_models}
+\end{table}
+
+
+For our use case, only promptable segmentation models are suitable, as the eye-tracking data provides point inputs that will be used to implement SOD. Among the identified promptable models, SAM and its successors are the only widely adopted models that natively support point-based prompts \citep{kirillov_segment_2023}. In contrast, Grounded-SAM \citep{ren_grounded_2024} and Florence-2 \citep{xiao_florence-2_2023} are limited to text prompts, and SEEM, whose last update dates back to 2023, is less actively maintained and less commonly used than SAM \citep{zou_segment_2023}.
+
+The Segment Anything Model (SAM) was developed by Meta AI and first introduced in mid-2023 \citep{kirillov_segment_2023}. SAM performs object segmentation based on prompts, including points and bounding boxes. With more than 15,000 citations, SAM has become one of the de facto standards for domain-specific applications and is already employed in several specialized salient object detection settings, such as camouflage object segmentation and medical image segmentation \citep{chen_sam3-adapter_2025}, RGB-T SOD \citep{liu_samsod_2025}, and text-driven SOD \citep{yuan_saliencyclip-sam_2026}. The most recent version, SAM 3, was released on 20 November 2025. Its rapid adoption - reaching over 5.1k GitHub stars within two weeks - indicates strong community interest. Compared to previous versions, SAM 3 introduces the ability to detect and segment instances that match a given text description, and to further refine detections using visual examples \citep{carion_sam_2025}.
+
+\section{Evaluation of Image Segmentation Models}
+-	Subjective \& Objective (Image segmentation evaluation: a survey of methods)
+
+-	SAM: IoU (SAM paper itself)
+
+-	Metrics in SOD: PR, F-measure, MAE (Salient object detection: A survey)
 
 %%% Local Variables:
 %%% mode: latex
