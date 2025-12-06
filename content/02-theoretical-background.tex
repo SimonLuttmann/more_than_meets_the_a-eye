@@ -83,12 +83,12 @@ Table \ref{table:segmentation_models} offers a structured overview of prominent 
 \textbf{Promptable Image Segmentation}
 \\
 \hline
-Mask R-CNN      & DeepLabV3      & Mask2Former       & SAM2, SAM3 \\
-YOLOv11-seg     & FCN            & Panoptic-DeepLab  & Grounded-SAM    \\
-YOLACT          & U-Net          & Panoptic FPN      & SEEM            \\
-Mask2Former     & SegFormer      & \ldots            & Florence-2      \\
-Mask DINO       & LR-ASPP        &                   & \ldots          \\
-\ldots          & \ldots         &                   &                 \\
+Mask R-CNN \newline \scriptsize\cite{he_mask_2018}     & DeepLabV3 \newline \scriptsize\cite{chen_rethinking_2017}     & Mask2Former \newline \scriptsize\cite{cheng_masked-attention_2022}      & SAM2, SAM3 \newline \scriptsize\cite{kirillov_segment_2023,carion_sam_2025}\\
+YOLOv11-seg \newline \scriptsize\cite{ultralytics_yolo_2025}    & FCN \newline \scriptsize\cite{long_fully_2015}           & Panoptic FPN \newline \scriptsize\cite{kirillov_panoptic_2019} & Grounded-SAM \newline \scriptsize\cite{ren_grounded_2024}   \\
+YOLACT \newline \scriptsize\cite{bolya_yolact_2019}         & U-Net        & Mask DINO \newline \scriptsize\cite{li_mask_2022}     & SEEM \newline \scriptsize\cite{zou_segment_2023}            \\
+Mask2Former \newline \scriptsize\cite{cheng_masked-attention_2022}    & SegFormer \newline \scriptsize\cite{xie_segformer_2021}     &    \ldots       & Florence-2 \newline \scriptsize\cite{xiao_florence-2_2023}     \\
+\ldots     & \ldots      &                   & \ldots          \\
+
 \hline
 \end{tabularx}
 \caption{Overview of prominent image segmentation models categorized by segmentation task.}
@@ -98,7 +98,7 @@ Mask DINO       & LR-ASPP        &                   & \ldots          \\
 
 For our use case, only promptable segmentation models are suitable, as the eye-tracking data provides point inputs that will be used to implement SOD. Among the identified promptable models, SAM and its successors are the only widely adopted models that natively support point-based prompts \citep{kirillov_segment_2023}. In contrast, Grounded-SAM \citep{ren_grounded_2024} and Florence-2 \citep{xiao_florence-2_2023} are limited to text prompts, and SEEM, whose last update dates back to 2023, is less actively maintained and less commonly used than SAM \citep{zou_segment_2023}.
 
-The Segment Anything Model (SAM) was developed by Meta AI and first introduced in mid-2023 \citep{kirillov_segment_2023}. SAM performs object segmentation based on prompts, including points and bounding boxes. With more than 15,000 citations, SAM has become one of the de facto standards for domain-specific applications and is already employed in several specialized salient object detection settings, such as camouflage object segmentation and medical image segmentation \citep{chen_sam3-adapter_2025}, RGB-T SOD \citep{liu_samsod_2025}, and text-driven SOD \citep{yuan_saliencyclip-sam_2026}. The most recent version, SAM 3, was released on 20 November 2025. Its rapid adoption - reaching over 5.1k GitHub stars within two weeks - indicates strong community interest. Compared to previous versions, SAM 3 introduces the ability to detect and segment instances that match a given text description, and to further refine detections using visual examples \citep{carion_sam_2025}.
+The Segment Anything Model (SAM) was developed by Meta AI and first introduced in mid-2023 \citep{kirillov_segment_2023}. SAM performs object segmentation based on prompts, including points and bounding boxes. With more than 15,000 citations, SAM has become one of the de facto standards for domain-specific applications and is already employed in several specialized salient object detection settings, such as camouflage object segmentation and medical image segmentation \citep{chen_sam3-adapter_2025}, RGB-T SOD \citep{liu_samsod_2025}, and text-driven SOD \citep{yuan_saliencyclip-sam_2026}. The most recent version, SAM 3, was released on 19 November 2025. Its rapid adoption - reaching over 5.3k GitHub stars within two weeks - indicates strong community interest \citep{meta_research_facebookresearchsam3_2025} . Compared to previous versions, SAM 3 introduces the ability to detect and segment instances that match a given text description, and to further refine detections using visual examples \citep{carion_sam_2025}.
 
 \newpage
 \section{Evaluation of Image Segmentation Models}
