@@ -2,18 +2,26 @@
 
 \subsection{Limitations}
 
-\begin{itemize}
-    \item Complexity of Social Media Images - Diverse Content, Contexts and Formats
-    \item Technical Constraints - Size of modern Transformer Models (Image Captioning Models) is mostly too large
-    \item Subjectivity of existing Dataset Ground Truths
-    \item No Social Media Specific Datasets for Salient Object Detection
-\end{itemize}
+During our research we identified several limitations that shape how the results should be interpreted. These limitations reflect both technical challenges and aspects related 
+to the nature of social media content. First, social media images show a high level of complexity. They include a wide range of content, contexts and formats. This diversity 
+makes it difficult to define what should be considered salient across different situations. It also reduces the generalisability of models that are trained on more uniform 
+data sources.
+
+Second, we encountered technical constraints. Modern transformer based models that support tasks such as image captioning are often very large and require considerable 
+computational resources. In many practical settings these models cannot be used directly or must be simplified, which can reduce performance. Third, the ground truth data 
+available in existing datasets reflects subjective human judgement. What is perceived as salient can differ between individuals, which introduces uncertainty into training 
+and evaluation. Finally, there are currently no datasets designed specifically for salient object detection in the context of social media. Most available datasets are 
+collected in more controlled environments and do not capture the characteristics of social media content. This limits the ability to develop and evaluate models that address 
+this specific setting.
 
 \subsection{Future Research}
 
-\begin{itemize}
-    \item Development of Social Media Specific Salient Object Detection Datasets
-    \item Exploration of Lightweight Models for Social Media Image Analysis
-    \item Integration of Multimodal Data (e.g., Text and Image) for Enhanced Salient Object Detection (use image captions as additional input)
-    \item Look into further applications of Salient Object Detection in Social Media Analysis
-\end{itemize}
+Future research can build on the findings of this seminar and explore areas that lie beyond its scope. One important direction is the development of datasets that focus 
+specifically on social media content. Such datasets would give models the opportunity to learn from examples that reflect the diversity, style and context that are 
+characteristic of images shared online. Another promising direction is the investigation of lightweight models for social media image analysis. Since many existing approaches 
+rely on large and resource intensive architectures, identifying smaller and more efficient models could improve accessibility and practical use.
+
+Further work may also examine how multimodal data can support salient object detection. Textual elements such as image captions can provide additional context and may enhance 
+model performance when integrated with visual information. Moreover, researchers could explore new applications of salient object detection within social media analysis. 
+This may include areas such as content understanding, user behaviour studies and automated moderation, where identifying salient elements may enable deeper insights and more 
+effective tools.
